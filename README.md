@@ -1,8 +1,7 @@
 # ServerStatus-Toyo： 
 
-* ServerStatus-Toyo版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~，该云监控（云探针）是ServerStatus（ https://github.com/tenyue/ServerStatus ）项目的优化/修改版。
-* 在线演示：https://tz.toyoo.ml    
-* 我的博客：https://doub.io/shell-jc3/
+* ServerStatus版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~，该云监控（云探针）是ServerStatus（ https://github.com/ToyoDAdoubi/ServerStatus-Toyo ）项目的自用修改版。
+* 在线演示：https://jrohy.top    
 
 # 目录介绍：
 
@@ -22,10 +21,7 @@
 
 执行下面的代码下载并运行脚本。
 ``` bash
-wget -N --no-check-certificate https://softs.fun/Bash/status.sh && chmod +x status.sh
-
-# 如果上面这个脚本无法下载，尝试使用备用下载：
-wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/status.sh && chmod +x status.sh
+wget -N --no-check-certificate https://raw.githubusercontent.com/Jrohy/ServerStatus/master/status.sh && chmod +x status.sh
 ```
 下载脚本后，根据需要安装客户端或者服务端：
 ``` bash
