@@ -1,7 +1,7 @@
 # ServerStatus-Toyo： 
 
 * ServerStatus版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~，该云监控（云探针）是ServerStatus（ https://github.com/ToyoDAdoubi/ServerStatus-Toyo ）项目的自用修改版。
-* 在线演示：https://jrohy.top    
+* 在线演示：https://tz.toyoo.ml    
 
 # 目录介绍：
 
@@ -10,7 +10,8 @@
 * web      网站文件  
 
 # 更新说明：
-
+* 2018.02.21, 逗比的负载优化无法统计V2Ray之类的连接数，所以改回原来的1分钟系统负载(linux里可以用uptime命令查询)
+              网页index.html去掉相关Toyo之类的连接，变为更通用的模版
 * 2017.10.12, 负载Load 优化，并且支持CentOS6系统
 * 2017.10.10, 修改负载 Load 的值为：当前服务器上链接SSR等软件的IP总数(只要软件监听IPv6那么就能统计，例如SSH)
 * 2017.04.30, 优化手机显示式样
