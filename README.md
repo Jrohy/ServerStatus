@@ -1,7 +1,7 @@
 # ServerStatus-Toyo： 
 
 * ServerStatus版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~，该云监控（云探针）是ServerStatus（ https://github.com/ToyoDAdoubi/ServerStatus-Toyo ）项目的自用修改版。
-* 在线演示：https://tz.toyoo.ml    
+* 在线演示：https://jrohy.xzy   
 
 # 目录介绍：
 
@@ -150,5 +150,5 @@ CentOS7系统 默认可能没有安装 netstat 依赖，所以会造成IP检测(
 
 * ServerStatus：https://github.com/BotoX/ServerStatus
 * mojeda: https://github.com/mojeda 
-* mojeda's ServerStatus: https://github.com/mojeda/ServerStatus
+* Toyo's ServerStatus: https://github.com/ToyoDAdoubi/ServerStatus-Toyo
 * BlueVM's project: http://www.lowendtalk.com/discussion/comment/169690#Comment_169690
