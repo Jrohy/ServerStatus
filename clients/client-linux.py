@@ -65,7 +65,8 @@ def get_custom_msg():
 		open(file_path, 'w').close()                   #文件不存在则创建
 	try:
 		custom_file = io.open(file_path, "r", encoding="utf-8")   #用io.open设置encoding来兼容python2和python3
-		custom_file.readlines()                        #读取一行测试能否成功，失败则以windows的gbk编码读取                       
+		custom_file.readlines()                        #读取一行测试能否成功，失败则以windows的gbk编码读取
+		custom_file.seek(0, 0)                         #重新设置文件读取指针到开头
 	except:
 		custom_file = io.open(file_path, "r", encoding="gbk")
 
