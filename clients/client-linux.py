@@ -21,6 +21,7 @@ import json
 import subprocess
 import collections
 import platform
+import io
 
 def get_uptime():
 	f = open('/proc/uptime', 'r')
@@ -58,6 +59,25 @@ def get_hdd():
 def get_load():
 	return os.getloadavg()[0]
 
+def get_custom_msg():
+	file_path = "customMsg.txt"
+	if not os.path.exists(file_path):
+		open(file_path, 'w').close()                   #文件不存在则创建
+	try:
+		custom_file = io.open(file_path, "r", encoding="utf-8")   #用io.open设置encoding来兼容python2和python3
+		custom_file.readlines()                        #读取一行测试能否成功，失败则以windows的gbk编码读取                       
+	except:
+		custom_file = io.open(file_path, "r", encoding="gbk")
+
+	result = ""  
+	for line in custom_file.readlines():                #依次读取每行  
+	    line = line.strip()                             #去掉每行头尾空白  
+	    if not len(line):                               #判断是否是空行
+	        continue                                    #是的话，跳过不处理  
+	    result += (line + " ")                            
+	custom_file.close()
+	return result
+
 def get_time():
 	stat_file = file("/proc/stat", "r")
 	time_list = stat_file.readline().split(' ')[2:6]
@@ -65,6 +85,7 @@ def get_time():
 	for i in range(len(time_list))  :
 		time_list[i] = int(time_list[i])
 	return time_list
+
 def delta_time():
 	x = get_time()
 	time.sleep(INTERVAL)
@@ -72,6 +93,7 @@ def delta_time():
 	for i in range(len(x)):
 		y[i]-=x[i]
 	return y
+
 def get_cpu():
 	t = delta_time()
 	st = sum(t)
@@ -178,6 +200,7 @@ if __name__ == '__main__':
 				NET_IN, NET_OUT = liuliang()
 				Uptime = get_uptime()
 				Load = get_load()
+				CustomMsg = get_custom_msg()
 				MemoryTotal, MemoryUsed, SwapTotal, SwapFree = get_memory()
 				HDDTotal, HDDUsed = get_hdd()
 
@@ -188,6 +211,7 @@ if __name__ == '__main__':
 				else:
 					timer -= 1*INTERVAL
 
+				array['custom'] = CustomMsg
 				array['uptime'] = Uptime
 				array['load'] = Load
 				array['memory_total'] = MemoryTotal
