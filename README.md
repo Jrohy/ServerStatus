@@ -10,6 +10,7 @@
 * web      网站文件  
 
 # 更新说明：
+* 2018.02.23, 新增自定义扩展信息，可在客户端的/usr/local/ServerStatus/customMsg.txt文件里配置,可以用html、css的标签去格式化显示(稍微注意双引号要用反斜杠\转义)
 * 2018.02.21, 逗比的负载优化无法统计V2Ray之类的连接数，所以改回原来的1分钟系统负载(linux里可以用uptime命令查询);
               网页index.html去掉相关Toyo之类的连接，变为更通用的模版
 * 2017.10.12, 负载Load 优化，并且支持CentOS6系统
@@ -128,6 +129,8 @@ Caddy配置文件：/usr/local/caddy/caddy
 安装目录：/usr/local/ServerStatus
 
 网页文件：/usr/local/ServerStatus/web
+
+客户端拓展信息配置文件: /usr/local/ServerStatus/customMsg.txt
 
 配置文件：/usr/local/ServerStatus/server/config.json
 
