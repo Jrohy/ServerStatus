@@ -56,6 +56,18 @@ def get_hdd():
 	size = total.split()[2]
 	return int(size), int(used)
 
+def get_tcp6_numbers():
+	system = platform.linux_distribution()
+	if system[0][:6] == "CentOS":
+		if system[1][0] == "6":
+			tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep tcp |grep '::ffff:' |awk '{print $5}' |awk -F ':' '{print $4}' |sort -u |wc -l").read()
+		else:
+			tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep tcp6 |awk '{print $5}' |awk -F ':' '{print $1}' |sort -u |wc -l").read()
+	else:
+		tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep tcp6 |awk '{print $5}' |awk -F ':' '{print $1}' |sort -u |wc -l").read()
+	
+	return int(tmp_load)
+
 def get_load():
 	return os.getloadavg()[0]
 
@@ -201,6 +213,7 @@ if __name__ == '__main__':
 				NET_IN, NET_OUT = liuliang()
 				Uptime = get_uptime()
 				Load = get_load()
+				Tcp6Num = get_tcp6_numbers()
 				CustomMsg = get_custom_msg()
 				MemoryTotal, MemoryUsed, SwapTotal, SwapFree = get_memory()
 				HDDTotal, HDDUsed = get_hdd()
@@ -212,6 +225,7 @@ if __name__ == '__main__':
 				else:
 					timer -= 1*INTERVAL
 
+				array['tcp6_num'] = Tcp6Num
 				array['custom'] = CustomMsg
 				array['uptime'] = Uptime
 				array['load'] = Load

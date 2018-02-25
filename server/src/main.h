@@ -44,6 +44,7 @@ class CMain
 		{
 			bool m_Online4;
 			bool m_Online6;
+			int64_t m_Tcp6Num;
 			int64_t m_Uptime;
 			double m_Load;
 			int64_t m_NetworkRx;
